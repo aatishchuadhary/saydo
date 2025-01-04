@@ -25,6 +25,9 @@
         <ul id="taskList" class="list-group mt-3">
           <!-- Tasks will be listed here -->
         </ul>
+        <div class="text-center mt-3">
+          <button class="btn btn-danger" onclick="deleteAllTasks()">Delete All Tasks</button>
+        </div>
       </div>
     </div>
   </div>
@@ -81,6 +84,12 @@
       renderTasks();
     }
 
+    // Delete all tasks
+    function deleteAllTasks() {
+      localStorage.removeItem('tasks'); // Remove all tasks from localStorage
+      renderTasks(); // Re-render the task list (empty)
+    }
+
     // Render tasks to the screen
     function renderTasks() {
       const tasks = getTasks();
@@ -106,6 +115,6 @@
     // Initial render of tasks when the page loads
     renderTasks();
   </script>
-  
+
 </body>
 </html>
